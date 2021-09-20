@@ -14,41 +14,182 @@
 	<body>
 		<div class="container-fluid p-4" style="background-color: rgb(5, 3, 0);">
 			<h1 class="display-4 m-4 p-4 text-warning">Queries about leagues, players and teams</h1>
-			<div id="rowscontainer"class="container m-4" style="width: 1225px; max-height: 700px; overflow-y: scroll; overflow-x: scroll;">
-				<!--<ol>
-					{% for league in leagues %}
-					<li>{{league.name}}</li>s
-					{% empty %}
-					<p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-					{% endfor %}
-				</ol>
-				<h1>Teams</h1>
-				<ol>
-					{% for team in teams %}
-					<li>{{team.location}} {{team.team_name}}</li>
-					{% empty %}
-					<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-					{% endfor %}
-				</ol>
-				<h1>Players</h1>
-			<ol>
-				{% for player in players %}
-				<li>{{player.id}}{{player.first_name}} {{player.last_name}}</li>
-				{% empty %}
-					<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-					{% endfor %}
-				</ol>-->
+			<div id="rowscontainer"class="container m-4" style="min-width: 95%; max-height: 550px; overflow-y: scroll; overflow-x: scroll;">
 				<div class="row p-2" style="background-color: rgb(248, 9, 13);">
-					<h3 class="text-center m-2">Baseball leagues</h3>
+					<h3 class="text-center m-2">all_atlantic_soccer_conference_teams</h3>
 					<ol> 
-					{% for liga in baseball_leagues %}
+					{% for team in all_atlantic_soccer_conference_teams %}
 						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
-							<li>{{liga.name}}</li>
+							<li>{{team.team_name}}, {{team.location}}</li>
 						</div>
 					{% endfor%}
 					</ol>
 				</div>
-		
+				<div class="row p-2" style="background-color: rgb(248, 117, 9);">
+					<h3 class="text-center m-2">all_current_boston_penguins_players</h3>
+					<ol> 
+					{% for player in all_current_boston_penguins_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}}{{player.last_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+				<div class="row p-2" style="background-color: rgb(248, 212, 9);">
+					<h3 class="text-center m-2">all_International_colegiate_baseball_conference_current_players</h3>
+					<ol> 
+					{% for player in all_International_colegiate_baseball_conference_current_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(212, 248, 9);">
+					<h3 class="text-center m-2">all_the_American_Amateur_Football_Conference_last_named_lopez_players</h3>
+					<ol> 
+					{% for player in all_the_American_Amateur_Football_Conference_last_named_lopez_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}}{{player.last_name}},{{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+				
+				<div class="row p-2" style="background-color: rgb(97, 248, 9);">
+					<h3 class="text-center m-2">all_football_players</h3>
+					<ol> 
+					{% for player in all_football_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.team_name}}, {{player.curr_team.league.name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(9, 248, 69);">
+					<h3 class="text-center m-2">all_current_players_named_Sophia</h3>
+					<ol> 
+					{% for player in all_current_players_named_Sophia %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.team_name}}, {{player.curr_team.league.name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+				
+				<div class="row p-2" style="background-color: rgb(9, 248, 136);">
+					<h3 class="text-center m-2">all_teams_with_named_sophia_current_players</h3>
+					<ol> 
+					{% for team in all_teams_with_named_sophia_current_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(9, 248, 216);">
+					<h3 class="text-center m-2">all_leagues_with_named_sophia_current_players</h3>
+					<ol> 
+					{% for league in all_leagues_with_named_sophia_current_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{league.name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(9, 105, 248);">
+					<h3 class="text-center m-2">all_not_current_last_named_flores_players_who_played_for_washington_roughriders</h3>
+					<ol> 
+					{% for player in all_not_current_last_named_flores_players_who_played_for_washington_roughriders %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}},{{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				
+				<div class="row p-2" style="background-color: rgb(148, 9, 248);">
+					<h3 class="text-center m-2">all_teams_where_samuel_evans_has_played</h3>
+					<ol> 
+					{% for team in all_teams_where_samuel_evans_has_played %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{team.team_name}}, {{team.league.name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(248, 9, 228);">
+					<h3 class="text-center m-2">all_historical_manitobatigers_players</h3>
+					<ol> 
+					{% for player in all_historical_manitobatigers_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(248, 9, 160);">
+					<h3 class="text-center m-2">only_oldnotcurrent_wichitas</h3>
+					<ol> 
+					{% for player in only_oldnotcurrent_wichitas %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.location}}, {{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(248, 9, 61);">
+					<h3 class="text-center m-2">every_Jacob_Gray_Team_before_OregonColts</h3>
+					<ol> 
+					{% for team in every_Jacob_Gray_Team_before_OregonColts %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{team.team_name}}, {{team.league.name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				
+				<div class="row p-2" style="background-color: rgb(248, 121, 1);">
+					<h3 class="text-center m-2">every_Joshua_who_has_played_at_the_atlanticamateurbaseballfederation</h3>
+					<ol> 
+					{% for player in every_Joshua_who_has_played_at_the_atlanticamateurbaseballfederation %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.curr_team.location}}, {{player.curr_team.team_name}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+
+				<div class="row p-2" style="background-color: rgb(236, 248, 1);">
+					<h3 class="text-center m-2">every_player_with_num_teams_he_has_played</h3>
+					<ol> 
+					{% for player in every_player_with_num_teams_he_has_played %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{player.first_name}} {{player.last_name}}, {{player.all_teams_account}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
+				
+				<div class="row p-2" style="background-color: rgb(9, 248, 29);">
+					<h3 class="text-center m-2">every_team_with_12ormore_players</h3>
+					<ol> 
+					{% for team in every_team_with_12ormore_players %}
+						<div class="m-2 text-dark" style="display: inline-block; width: 250px;">
+							<li>{{team.team_name}}, {{team.num_players}}</li>
+						</div>
+					{% endfor%}
+					</ol>
+				</div>
 
 			</div>
 			
